@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocationStrategy } from '@angular/common';
 import { Http } from '@angular/http';
 import { RSVPEntry } from '../models/rsvp.entry';
 import { Observable } from 'rxjs/RX'
@@ -6,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RSVPService {
-    constructor(private http: Http) { }
+    constructor(private http: Http, private locationStrategy: LocationStrategy) { }
 
     private parseResponse(response: Object[]): RSVPEntry[] {
         var parsedResponse: RSVPEntry[] = [];
@@ -31,7 +32,8 @@ export class RSVPService {
     }
 
     getList(): Observable<RSVPEntry[]> {
-        return this.http.get("/assets/rsvp.json")
+        var dataUrl = this.locationStrategy.prepareExternalUrl('assets/rsvp.json');
+        return this.http.get(dataUrl)
             .map(response => this.parseResponse(response.json()));
     }
 }
