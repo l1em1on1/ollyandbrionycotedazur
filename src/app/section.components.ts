@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Http } from "@angular/http";
+import { RSVPEntry } from "./models/rsvp.entry";
+import { Observable } from "rxjs";
+import { RSVPService } from "./services/rsvp.service";
 
 @Component({
     templateUrl: "../sections/home.html"
@@ -33,4 +37,10 @@ export class OtherFestivitiesSectionComponent {}
 @Component({
     templateUrl: "../sections/rsvp.html"
 })
-export class RSVPSectionComponent {}
+export class RSVPSectionComponent {
+    rsvpList: RSVPEntry[];
+
+    constructor(private rsvpService: RSVPService) {
+       this.rsvpService.getList().subscribe(list => this.rsvpList = list);
+    }
+ }

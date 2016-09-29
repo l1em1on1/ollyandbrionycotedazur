@@ -2,18 +2,24 @@
     <h1>RSVP list</h1>
 
     <ul id="rsvpList">
-        <!--{{#each rsvpList}}
-        <li>
-            <p><strong>{{name}} - {{contact}}</strong></p>
-            <p>Is attending: {{attending}}</p>
-            {{#if isAttending attending}} {{#if isAttending attending_friday}}
-            <p>Friday: {{attending_friday}} | Coach on Friday: {{coach_friday}}</p>{{/if}}
-            <p>Coach on Saturday: {{coach}} | Vegetarian option: {{vegetarian}}</p>
-            {{#if children_diet_info}}
-            <p>Children diet: {{children_diet_info}}</p>{{/if}} {{#if song_info}}
-            <p>Song: {{song_info}}</p>{{/if}} {{#if more_info}}
-            <p>More: {{more_info}}</p>{{/if}} {{/if}}
+        <li *ngFor="let rsvpEntry of rsvpList">
+            <p><strong>{{rsvpEntry.name}} - {{rsvpEntry.contact}}</strong></p>
+            <p>Is attending: {{rsvpEntry.isAttending}}</p>
+            <div *ngIf="rsvpEntry.isAttending">
+                <div *ngIf="rsvpEntry.iAttendingOnFriday">
+                    <p>Friday: {{rsvpEntry.iAttendingOnFriday}} | Coach on Friday: {{rsvpEntry.needCoachOnFriday}}</p>
+                </div>
+                <p>Coach on Saturday: {{rsvpEntry.needCoach}} | Vegetarian option: {{rsvpEntry.vegetarian}}</p>
+                <div *ngIf="rsvpEntry.childrenDietInfo">
+                    <p>Children diet: {{rsvpEntry.childrenDietInfo}}</p>
+                </div>
+                <div *ngIf="rsvpEntry.songInfo">
+                    <p>Song: {{rsvpEntry.songInfo}}</p>
+                </div>
+                <div *ngIf="rsvpEntry.moreInfo">
+                    <p>More: {{rsvpEntry.moreInfo}}</p>
+                </div>
+            </div>
         </li>
-        {{/each}}-->
     </ul>
 </div>

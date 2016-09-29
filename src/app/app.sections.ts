@@ -1,11 +1,5 @@
-import { Type } from '@angular/core'
 import { HomeSectionComponent, GettingThereSectionComponent, AccomodationSectionComponent, LocalAreaSectionComponent, MainEventSectionComponent, OtherFestivitiesSectionComponent, RSVPSectionComponent }  from './section.components';
-
-export interface Section {
-    title: string;
-    path: string;
-    component: Type<any>
-}
+import { Section } from "./models/section";
 
 export const Sections: Section[] = [
     {
