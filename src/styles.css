@@ -1,1 +1,408 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter|Open+Sans+Condensed:300,300italic);
+
+/*
+font-family: 'Architects Daughter', cursive;
+font-family: 'Bad Script', cursive;
+*/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-width: 480px;
+    min-height: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body::after {
+    content: "";
+    background-image: url(./assets/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+body.home::after {
+    opacity: 1;
+    background-image: url(./assets/images/background.jpg);
+}
+
+a,
+body {
+    color: #111;
+}
+
+a {
+    font-style: italic;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    position: fixed;
+    top: 100px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    overflow-x: auto;
+}
+
+.container>ng-component>div {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container>ng-component>div>div {
+    padding: 15px;
+    background: #fff;
+}
+
+.container>ng-component>div>div+div {
+    margin-top: 15px;
+}
+
+.container img {
+    width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Architects Daughter', cursive;
+}
+
+h1 {
+    font-size: 2.5em;
+    line-height: 5;
+}
+
+h2 {
+    font-size: 1.6em;
+    line-height: 3;
+}
+
+h3 {
+    font-size: 1.4em;
+    line-height: 3;
+}
+
+li,
+p {
+    font-size: 1.4em;
+    line-height: 1.4;
+}
+
+p+ul,
+ul+p,
+p+p,
+img+p,
+p+img {
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+nav {
+    text-align: center;
+    background: white;
+    height: 30px;
+    padding: 35px 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1.5em;
+    line-height: 30px;
+    min-width: 480px;
+    z-index: 1;
+}
+
+nav a>span {
+    white-space: nowrap;
+}
+
+nav a.active>span {
+    text-decoration: underline;
+    color: #256;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+nav a:hover>span {
+    text-decoration: underline;
+}
+
+nav a::after {
+    color: #ccc;
+    margin: 0 5px;
+    content: " | ";
+}
+
+nav a:last-child::after {
+    content: ""
+}
+
+button,
+textarea,
+input,
+label {
+    font-size: 1.3em;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+form>div {
+    margin-top: 20px;
+    clear: both;
+}
+
+div.radio {
+    width: 400px;
+}
+
+div.radio>div {
+    float: right;
+}
+
+textarea,
+input.text {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    width: 80%;
+}
+
+textarea {
+    min-height: 60px;
+}
+
+input[type="radio"],
+label {
+    cursor: pointer;
+}
+
+button#new_rsvp,
+input[type="submit"] {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-style: italic;
+    color: green;
+}
+
+input[type="reset"] {
+    color: red;
+}
+
+button#new_rsvp:hover,
+input[type="submit"]:hover {
+    text-decoration: underline;
+}
+
+#home {
+    width: 600px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 50px;
+    text-align: center;
+    text-shadow: 2px 1px #333;
+}
+
+#home a {
+    color: #fff;
+}
+
+#home h1 {
+    font-size: 3.5em;
+    line-height: 2;
+}
+
+#home h2 {
+    font-size: 2.3em;
+    line-height: 1;
+    margin-bottom: 300px;
+}
+
+#home p {
+    font-size: 1.8em;
+    font-style: italic;
+}
+
+.login {
+    text-align: center;
+}
+
+#login_form input {
+    margin: 0 auto;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+#rsvpList li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+#rsvpList p {
+    font-size: 1em;
+    padding-left: 25px;
+    margin-top: 0;
+    font-style: italic;
+}

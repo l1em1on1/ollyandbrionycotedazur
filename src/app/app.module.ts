@@ -1,20 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { ContainerComponent } from './container.component';
+import { HomeSectionComponent, GettingThereSectionComponent, AccomodationSectionComponent, LocalAreaSectionComponent, MainEventSectionComponent, OtherFestivitiesSectionComponent, RSVPSectionComponent }  from './section.components';
+
+import { routing } from './app.routing';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
+  imports: [BrowserModule, routing],
+  declarations: [ContainerComponent, HomeSectionComponent, GettingThereSectionComponent, AccomodationSectionComponent, LocalAreaSectionComponent, MainEventSectionComponent, OtherFestivitiesSectionComponent, RSVPSectionComponent ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ContainerComponent]
 })
 export class AppModule { }

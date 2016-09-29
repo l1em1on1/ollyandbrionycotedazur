@@ -1,0 +1,93 @@
+<div id="rsvp">
+    <h1>RSVP</h1>
+    <div>
+        <p>Please RSVP by Friday 15th April.</p>
+        <p>Couples, please RSVP individually to give us an accurate number for dietary requirements.</p>
+        {{#if saved}}
+        <h3>RSVP saved</h3>
+        <p><strong>{{saved.name}} - {{saved.contact}}</strong></p>
+        <p>Is attending: {{saved.attending}}</p>
+        {{#if isAttending saved.attending}} {{#if isAttending saved.attending_friday}}
+        <p>Friday: {{saved.attending_friday}} | Coach on Friday: {{saved.coach_friday}}</p>{{/if}}
+        <p>Coach on Saturday: {{saved.coach}} | Vegetarian option: {{saved.vegetarian}}</p>
+        {{#if saved.children_diet_info}}
+        <p>Children diet: {{saved.children_diet_info}}</p>{{/if}} {{#if saved.song_info}}
+        <p>Song: {{saved.song_info}}</p>{{/if}} {{#if saved.more_info}}
+        <p>More: {{saved.more_info}}</p>{{/if}} {{/if}}
+        <br />
+        <button id="new_rsvp">New RSVP</button> {{else}}
+        <form id="rsvp_form">
+            <div>
+                <label for="name">Name</label>
+                <input class="text" id="name" name="name" type="text" value="{{saved.name}}" required />
+            </div>
+            <div>
+                <label for="contact">Email address for Contact</label>
+                <input class="text" id="contact" name="contact" type="contact" value="{{saved.contact}}" required />
+            </div>
+            <div class="radio">
+                <label>I am attending the wedding</label>
+                <div>
+                    <input id="attending_yes" name="attending" value="yes" type="radio" required /><label for="attending_yes">yes</label>
+                    <input id="attending_no" name="attending" value="no" type="radio" required /><label for="attending_no">no</label>
+                </div>
+            </div>
+            <div class="radio" style="{{showDetails}}">
+                <label>I want the coach on Saturday</label>
+                <div>
+                    <input id="coach_yes" name="coach" value="yes" type="radio" {{requiredAttribute}} /><label for="coach_yes">yes</label>
+                    <input id="coach_no" name="coach" value="no" type="radio" {{requiredAttribute}} /><label for="coach_no">no</label>
+                </div>
+            </div>
+            <div class="radio" style="{{showDetails}}">
+                <label>I am coming on Friday</label>
+                <div>
+                    <input id="attendingFriday_yes" name="attending_friday" value="yes" type="radio" {{requiredAttribute}} /><label for="attendingFriday_yes">yes</label>
+                    <input id="attendingFriday_no" name="attending_friday" value="no" type="radio" {{requiredAttribute}} /><label for="attendingFriday_no">no</label>
+                </div>
+            </div>
+            <div class="radio" style="{{showDetails}}">
+                <label>I want the coach on Friday</label>
+                <div>
+                    <input id="coachFriday_yes" name="coach_friday" value="yes" type="radio" {{requiredAttribute}} /><label for="coachFriday_yes">yes</label>
+                    <input id="coachFriday_no" name="coach_friday" value="no" type="radio" {{requiredAttribute}} /><label for="coachFriday_no">no</label>
+                </div>
+            </div>
+            <div class="radio" style="{{showDetails}}">
+                <label>Vegetarian option required</label>
+                <div>
+                    <input id="vegetarian_yes" name="vegetarian" value="yes" {{requiredAttribute}} type="radio" /><label for="vegetarian_yes">yes</label>
+                    <input id="vegetarian_no" name="vegetarian" value="no" {{requiredAttribute}} type="radio" /><label for="vegetarian_no">no</label>
+                </div>
+            </div>
+            <div style="{{showDetails}}">
+                <label for="children_diet_info">If you are bringing children please confirm the number of children and if they have dietary requirements</label>
+                <textarea id="children_diet_info" name="children_diet_info">{{saved.children_diet_info}}</textarea>
+            </div>
+            <div style="{{showDetails}}">
+                <label for="song_info">Please give us the name of a song you would like played at the reception and we will try accommodate it</label>
+                <textarea id="song_info" name="song_info">{{saved.song_info}}</textarea>
+            </div>
+            <div style="{{showDetails}}">
+                <label for="more_info">Any further requests or information we may need</label>
+                <textarea id="more_info" name="more_info">{{saved.more_info}}</textarea>
+            </div>
+            {{#unless saving}}
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+            {{/unless}}
+        </form>
+        {{/if}}
+    </div>
+    <div>
+        <p>We would also love for any of you to email us with any of your old wedding photos for on the day. If you can, send them to <a href="mailto:ollyandbriony@hotmail.com">ollyandbriony@hotmail.com</a></p>
+        <h2>Contact</h2>
+        <p>In the run up to the wedding, please contact Briony with any queries on +44 7734 391 662 or email <a href="mailto:ollyandbriony@hotmail.com">ollyandbriony@hotmail.com</a></p>
+        <p>Once in France, please contact Alan or Heather Myerson on +33 49 45 48 512 or alternatively one of the best men:</p>
+        <ul>
+            <li>Luke +44 7711 637 590</li>
+            <li>Guy +44 7719 441 165</li>
+        </ul>
+    </div>
+</div>
